@@ -13,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={overPassMono.className}>{children}</body>
+      <body className={`${overPassMono.className} bg-primary text-white`}>
+        {children}
+      </body>
     </html>
   );
 }
