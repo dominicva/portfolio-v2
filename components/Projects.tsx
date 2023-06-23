@@ -2,11 +2,9 @@ import Image from 'next/image';
 
 export default function Projects() {
   return (
-    <section className="bg-gray-200 p-6 pb-48 text-primary md:p-8">
-      <article className="m-auto flex max-w-2xl flex-col gap-8">
-        <h2 className="mb-4 mt-8 text-2xl font-semibold text-primary">
-          My projects
-        </h2>
+    <section className="bg-primary p-6 pb-48 text-white md:p-8">
+      <article className="m-auto flex max-w-3xl flex-col gap-8">
+        <h2 className="mb-4 mt-8 text-2xl font-semibold">My projects</h2>
         <div>
           <ul>
             <li>
@@ -38,7 +36,7 @@ export default function Projects() {
                   TypeScript, React and Nextjs 13+ (using the new App router and
                   React Server Components), TailwindCSS, Postgres with Prisma as
                   the ORM, Next-Auth for user authentication, Stripe for
-                  payments,and Cloudinary for image hosting.
+                  payments, and Cloudinary for image hosting.
                 </p>
               </div>
             </li>

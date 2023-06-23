@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <header className="bg-primary p-6 md:p-8">
-      <nav className="m-auto max-w-2xl">
+      <nav className="m-auto max-w-3xl">
         <ul className="flex gap-6 text-secondary">
           <li>
             <a
