@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="m-auto max-w-3xl">
         <hgroup className="mb-12">
           <h1 className="my-8 w-[90%] text-2xl text-white">
-            <span className="block">Hello, I'm a</span>
+            <span className="block">Hello, I&apos;m a</span>
             <span className="block">full-stack web engineer</span>
           </h1>
           <p className="max-w-sm text-white-dim">
