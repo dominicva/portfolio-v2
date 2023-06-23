@@ -30,8 +30,13 @@ const buttonClasses = cva(
           'border-2',
         ],
         tertiary: ['bg-white', 'text-primary', 'border-transparent'],
-        error: ['bg-error', 'text-primary', 'font-bold', 'hover:bg-gray-100'],
-        'error-accent': ['bg-none', 'text-error', 'border-error', 'border-2'],
+        accent: ['bg-accent', 'text-primary', 'font-bold', 'hover:bg-gray-100'],
+        'accent-accent': [
+          'bg-none',
+          'text-accent',
+          'border-accent',
+          'border-2',
+        ],
       },
       size: {
         xsmall: ['text-sm', 'px-2', 'py-1'],

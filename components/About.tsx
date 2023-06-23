@@ -1,7 +1,7 @@
 export default function About() {
   return (
-    <section className="bg-white text-primary p-6 md:p-8">
-      <article className="flex flex-col gap-8 max-w-xl m-auto">
+    <section className="bg-white text-primary p-6 md:p-8 pb-16 md:pb-20">
+      <article className="flex flex-col gap-8 max-w-2xl m-auto">
         <div>
           <h2 className="text-2xl font-semibold mt-8 mb-4 text-primary">
             About me
