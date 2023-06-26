@@ -65,11 +65,10 @@ export default function Projects() {
                   />
                 </a>
                 <p className="sm:basis-[47%] sm:self-center">
-                  An e-commerce store selling keto groceries. Built with
-                  TypeScript, React and Nextjs 13+ (using the new App router and
-                  React Server Components), TailwindCSS, Postgres with Prisma as
-                  the ORM, Next-Auth for user authentication, Stripe for
-                  payments, and Cloudinary for image hosting.
+                  A website for a non-profit organization. Built with HTML,
+                  SASS, and vanilla JavaScript. The site is fully responsive and
+                  makes use of some fun APIs like the Intersection Observer API
+                  to trigger animations when elements are in view.
                 </p>
               </div>
             </li>
@@ -98,11 +97,11 @@ export default function Projects() {
                   />
                 </a>
                 <p className="sm:basis-[47%] sm:self-center">
-                  An e-commerce store selling keto groceries. Built with
-                  TypeScript, React and Nextjs 13+ (using the new App router and
-                  React Server Components), TailwindCSS, Postgres with Prisma as
-                  the ORM, Next-Auth for user authentication, Stripe for
-                  payments, and Cloudinary for image hosting.
+                  A dictionary app built with React and TailwindCSS. The app
+                  makes use of the Dictionary API to fetch definitions and
+                  examples for words. The app has a dark mode toggle and is
+                  fully responsive. There is also a dropdown menu to change the
+                  font across the app.
                 </p>
               </div>
             </li>
@@ -131,11 +130,10 @@ export default function Projects() {
                   />
                 </a>
                 <p className="sm:basis-[47%] sm:self-center">
-                  An e-commerce store selling keto groceries. Built with
-                  TypeScript, React and Nextjs 13+ (using the new App router and
-                  React Server Components), TailwindCSS, Postgres with Prisma as
-                  the ORM, Next-Auth for user authentication, Stripe for
-                  payments, and Cloudinary for image hosting.
+                  A simple password generator build with vanilla HTML, CSS, and
+                  JavaScript. The app allows users to generate a password of
+                  varying length and complexity. The app also calculates how
+                  strong the password is using the zxcvbn library.
                 </p>
               </div>
             </li>
