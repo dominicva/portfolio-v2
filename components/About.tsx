@@ -10,16 +10,16 @@ export default function About() {
             I&apos;m Dom, a self-taught full stack JavaScript/TypeScript
             engineer with a passion for building for the web. With an
             oat-americano in hand and a love for all things React, Next.js, and
-            Node.js, I experiment all over the web ecosystem. Whether I&apos;m
+            Node.js, I experiment across the web ecosystem. Whether I&apos;m
             architecting scalable backends or crafting pixel-perfect frontends,
             I strive to strike a balance between clean code and user
             satisfaction.
           </p>
           <p>
             I also wear the hat of a JavaScript teacher, guiding students on
-            their coding journeys. I firmly believe that empathy is the secret
-            to effective teaching. Having walked the path of a self-learner, I
-            know the struggles that beginners face. I&apos;m here to demystify
+            their coding journeys. I believe that empathy is the secret to
+            effective teaching. Having walked the path of a self-learner, I know
+            the struggles that beginners face. I&apos;m here to demystify
             complex concepts, and provide a supportive environment where
             everyone feels encouraged to ask questions and embrace their coding
             superpowers.
