@@ -8,12 +8,11 @@ export default function About() {
           </h2>
           <p className="mb-6">
             I&apos;m Dom, a self-taught full stack JavaScript/TypeScript
-            engineer with a passion for building for the web. With an
-            oat-americano in hand and a love for all things React, Next.js, and
-            Node.js, I experiment across the web ecosystem. Whether I&apos;m
-            architecting scalable backends or crafting pixel-perfect frontends,
-            I strive to strike a balance between clean code and user
-            satisfaction.
+            engineer with a passion for building for the web. With a coffee in
+            hand and a love for all things React, Next.js, and NodeJS, I
+            experiment across the web ecosystem. Whether I&apos;m architecting
+            scalable backends or crafting pixel-perfect frontends, I strive to
+            strike a balance between clean code and user satisfaction.
           </p>
           <p>
             I also wear the hat of a JavaScript teacher, guiding students on
@@ -25,22 +24,6 @@ export default function About() {
             superpowers.
           </p>
         </div>
-        {/* <div>
-          <h3 className="mb-1 text-lg font-medium">Technical</h3>
-          <p>
-            Right now you can find me hacking away primarily with React, Nextjs,
-            Prisma, TailwindCSS, Vercel and in general anything full-stack
-            JavaScript/TypeScriptrelated.
-          </p>
-        </div>
-        <div>
-          <h3 className="mb-1 text-lg font-medium">Personal</h3>
-          <p>
-            Right now you can find me hacking away primarily with React, Nextjs,
-            Prisma, TailwindCSS, Vercel and in general anything full-stack
-            JavaScript/TypeScriptrelated.
-          </p>
-        </div> */}
       </article>
     </section>
   );
