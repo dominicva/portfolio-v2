@@ -42,7 +42,7 @@ export default function Projects() {
             </li>
             <li>
               <a
-                href="https://ketomarket.vercel.app/"
+                href="https://earthriseinitiative.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline hover:underline-offset-4"
@@ -74,7 +74,7 @@ export default function Projects() {
             </li>
             <li>
               <a
-                href="https://ketomarket.vercel.app/"
+                href="https://dictionary-app-liart.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline hover:underline-offset-4"
@@ -107,7 +107,7 @@ export default function Projects() {
             </li>
             <li>
               <a
-                href="https://ketomarket.vercel.app/"
+                href="https://password-generator-ten-lemon.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline hover:underline-offset-4"
@@ -130,7 +130,7 @@ export default function Projects() {
                   />
                 </a>
                 <p className="sm:basis-[47%] sm:self-center">
-                  A simple password generator build with vanilla HTML, CSS, and
+                  A simple password generator built with vanilla HTML, CSS, and
                   JavaScript. The app allows users to generate a password of
                   varying length and complexity. The app also calculates how
                   strong the password is using the zxcvbn library.
