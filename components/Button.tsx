@@ -42,7 +42,7 @@ const buttonClasses = cva(
         xsmall: ['text-sm', 'px-2', 'py-1'],
         small: ['text-md', 'px-3', 'py-2'],
         medium: ['text-lg', 'px-6', 'py-3'],
-        large: ['text-xlg', 'px-8', 'py-4'],
+        large: ['text-xl', 'px-8', 'py-4'],
         round: ['text-lg', 'p-2'],
       },
     },
