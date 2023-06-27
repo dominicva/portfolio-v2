@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { Button } from '@/components/Button';
+import ScrollLink from '@/components/ScrollLink';
 
 export default function Hero() {
   return (
@@ -15,11 +15,11 @@ export default function Hero() {
             focusing on technologies like React, Nextjs, and NodeJS.
           </p>
         </hgroup>
-        <Link href="#footer">
+        <ScrollLink to="#contact-form">
           <Button intent="secondary" className="w-[12rem]">
             Contact me
           </Button>
-        </Link>
+        </ScrollLink>
       </div>
     </section>
   );

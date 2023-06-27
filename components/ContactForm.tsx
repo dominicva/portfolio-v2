@@ -25,7 +25,11 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="m-auto max-w-3xl pb-20 pt-12">
+    <form
+      id="contact-form"
+      onSubmit={onSubmit}
+      className="m-auto max-w-3xl pb-20 pt-12"
+    >
       <div className="mb-6 flex flex-col gap-1">
         <label htmlFor="email" className="text-white">
           Email Address
