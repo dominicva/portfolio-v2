@@ -28,7 +28,7 @@ export default function ContactForm() {
     <form
       id="contact-form"
       onSubmit={onSubmit}
-      className="m-auto max-w-3xl pb-20"
+      className="m-auto max-w-3xl p-6 pb-20 md:px-0"
     >
       <div className="mb-6 flex flex-col gap-1">
         <label htmlFor="email" className="text-white">
@@ -40,7 +40,7 @@ export default function ContactForm() {
           name="email"
           placeholder='e.g. "ninja@javascript.com"'
           autoComplete="email"
-          className="max-w-sm rounded p-3 text-primary focus:outline-secondary"
+          className="rounded p-3 text-primary focus:outline-secondary"
         />
         <ValidationError prefix="Email" field="email" errors={state.errors} />
       </div>
