@@ -31,7 +31,7 @@ export default function ContactForm() {
       <form id="contact-form" onSubmit={onSubmit}>
         <div className="mb-6 flex flex-col gap-1">
           <label htmlFor="email" className="text-white">
-            Email Address
+            Your email address
           </label>
           <input
             id="email"
