@@ -7,7 +7,9 @@ import { TwoSeventyRing } from 'react-svg-spinners';
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('mqkvzbea');
   const [loading, setLoading] = useState(false);
-  const buttonContent = loading ? <TwoSeventyRing /> : <span>Send</span>;
+  const buttonContent =
+    loading && state.submitting ? <TwoSeventyRing /> : <span>Send</span>;
+  console.log('state', state);
 
   if (state.succeeded) {
     return (
@@ -40,17 +42,33 @@ export default function ContactForm() {
           name="email"
           placeholder='e.g. "ninja@javascript.com"'
           autoComplete="email"
-          className="rounded p-3 text-primary focus:outline-secondary"
+          className="max-w-md rounded p-3 text-primary focus:outline-secondary"
         />
-        <ValidationError prefix="Email" field="email" errors={state.errors} />
       </div>
+      <ValidationError
+        prefix="Email"
+        field="email"
+        errors={state.errors}
+        className="text-white"
+      />
       <textarea
         id="message"
         name="message"
         placeholder="Write your message here..."
         className="mb-6 h-56 w-full resize-none rounded p-3 text-primary focus:outline-secondary"
       />
-      <ValidationError prefix="Message" field="message" errors={state.errors} />
+      <div className="text-accent">
+        {state.errors.length > 0 ? (
+          <p className="mb-6 text-lg font-semibold">
+            {state.errors[0].message} 😢
+          </p>
+        ) : null}
+        <ValidationError
+          prefix="Message"
+          field="message"
+          errors={state.errors}
+        />
+      </div>
       <button
         type="submit"
         disabled={state.submitting}
