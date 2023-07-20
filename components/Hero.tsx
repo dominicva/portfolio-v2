@@ -12,7 +12,7 @@ export default function Hero() {
           </h1>
           <p className="max-w-sm text-white-dim">
             My name is Dominic van Almsick. I am a full-stack web engineer
-            focusing on technologies like React, Nextjs, and NodeJS.
+            focusing on technologies like TypeScript, React, Nextjs, and NodeJS.
           </p>
         </hgroup>
         <ScrollLink to="#contact-form">

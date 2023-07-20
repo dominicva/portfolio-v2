@@ -11,8 +11,8 @@ export default function About() {
             engineer with a passion for building for the web. With a coffee in
             hand and a love for all things React, Next.js, and NodeJS, I
             experiment across the web ecosystem. Whether I&apos;m architecting
-            scalable backends or crafting pixel-perfect frontends, I strive to
-            strike a balance between clean code and user satisfaction.
+            an API or crafting pixel-perfect frontends, I strive to strike a
+            balance between simple user experience and feature rich interfaces.
           </p>
           <p>
             I also wear the hat of a JavaScript teacher, guiding students on
