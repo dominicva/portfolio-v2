@@ -15,6 +15,8 @@ export default function Project({
   image,
   link,
 }: ProjectProps) {
+  const orderClass = index % 2 === 0 ? 'sm:order-first' : 'sm:order-last';
+
   return (
     <li>
       <a
@@ -30,9 +32,7 @@ export default function Project({
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className={`transform shadow transition-all duration-200 ease-in-out hover:translate-y-0.5 hover:shadow-lg sm:order-${
-            index % 2 === 0 ? 2 : 1
-          }`}
+          className={`transform shadow transition-all duration-200 ease-in-out hover:translate-y-0.5 hover:shadow-lg ${orderClass}`}
         >
           <Image
             src={image}
