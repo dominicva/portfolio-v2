@@ -34,7 +34,7 @@ export const projects: Omit<ProjectProps, 'index'>[] = [
     title: 'Password Generator',
     description:
       'A simple password generator built with vanilla HTML, CSS, and JavaScript. The app allows users to generate a password of varying length and complexity. The app also calculates how strong the password is using the zxcvbn library.',
-    image: '/assets/dictionary.png',
+    image: '/assets/password.png',
     link: 'https://password-generator-ten-lemon.vercel.app/',
   },
 ];
