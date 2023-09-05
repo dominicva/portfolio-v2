@@ -3,6 +3,13 @@ import type { ProjectProps } from '@/components/Project';
 // index prop gets passed in from the map function in the Projects component
 export const projects: Omit<ProjectProps, 'index'>[] = [
   {
+    title: 'Recover',
+    description:
+      'An AI-assisted mood tracker to help you move past addiction. Built with TypeScript, React, Nextjs, TailwindCSS, OpenAI, PlanetScale, NextAuth.js, Prisma, and Vercel. Users can: write journal entries and receive AI generated advice; complete mood questionnaires; visualise their progress over time; receive achievement badges; and create and view promises to their future selves.',
+    image: '/assets/recover-bg.png',
+    link: 'https://recover-ten.vercel.app/',
+  },
+  {
     title: 'Ketomarket',
     description:
       'An e-commerce store selling keto groceries. Built with TypeScript, React and Nextjs 13+ (using the new App router and React Server Components), TailwindCSS, Postgres with Prisma as the ORM, Next-Auth for user authentication, Stripe for payments, and Cloudinary for image hosting.',
@@ -12,7 +19,7 @@ export const projects: Omit<ProjectProps, 'index'>[] = [
   {
     title: 'Meal Plan Generator',
     description:
-      'Built with HTML, SASS, and TypeScript, the app allows users to specify ingredients, the approximate number of calories, dietary preference, and the number of desired courses. Using the OpenAI API, the app generates a meal plan with recipes for each of the courses.',
+      'Built during a hackathon, I used HTML, SASS, and TypeScript. The app allows users to specify ingredients, the approximate number of calories, dietary preference, and the number of desired courses. Using the OpenAI API, the app generates a meal plan with recipes for each of the courses.',
     image: '/assets/meal-plan-generator.png',
     link: 'https://meal-bot-chi.vercel.app/',
   },
