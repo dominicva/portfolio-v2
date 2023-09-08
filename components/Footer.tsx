@@ -1,6 +1,9 @@
 export default function Footer() {
   return (
-    <footer id="footer" className="bg-accent p-6 text-primary">
+    <footer
+      id="footer"
+      className=" bg-accent p-6 text-foreground dark:text-background"
+    >
       <div className="m-auto max-w-3xl py-16 md:py-20">
         <p className="">
           Send me an{' '}

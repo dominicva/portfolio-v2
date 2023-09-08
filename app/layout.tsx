@@ -1,5 +1,6 @@
 import './globals.css';
 import { overPassMono } from '@/lib/font';
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata = {
   title: 'Dom van Almsick - Software Engineer',
@@ -12,8 +13,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={overPassMono.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={overPassMono.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

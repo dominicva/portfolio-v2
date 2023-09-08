@@ -3,9 +3,7 @@ export default function About() {
     <section className="p-6 pb-16 md:p-8 md:pb-20">
       <article className="m-auto flex max-w-3xl flex-col gap-8">
         <div>
-          <h2 className="mb-4 mt-8 text-2xl font-semibold text-white">
-            About me
-          </h2>
+          <h2 className="mb-4 mt-8 text-2xl font-semibold">About me</h2>
           <p className="mb-6">
             I&apos;m Dom, a self-taught full stack JavaScript/TypeScript
             engineer with a passion for building for the web. With a coffee in
