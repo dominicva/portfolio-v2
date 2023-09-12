@@ -1,4 +1,5 @@
 import ScrollLink from '@/components/ScrollLink';
+import { Button } from './ui/button';
 
 export default function Hero() {
   return (
@@ -15,6 +16,9 @@ export default function Hero() {
           </p>
         </hgroup>
         <ScrollLink to="#contact-form">
+          <Button size="lg" variant="outline" className="w-[12rem]">
+            Contact me
+          </Button>
           {/* <Button intent="secondary" className="w-[12rem]">
             Contact me
           </Button> */}

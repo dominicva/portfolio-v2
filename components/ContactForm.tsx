@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { TwoSeventyRing } from 'react-svg-spinners';
+import { Button } from './ui/button';
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm('mqkvzbea');
@@ -37,7 +38,7 @@ export default function ContactForm() {
             name="email"
             placeholder='e.g. "ninja@javascript.com"'
             autoComplete="email"
-            className="max-w-md rounded p-3"
+            className="max-w-md rounded p-3 dark:bg-white dark:text-primary-foreground"
           />
         </div>
         <ValidationError prefix="Email" field="email" errors={state.errors} />
@@ -45,9 +46,9 @@ export default function ContactForm() {
           id="message"
           name="message"
           placeholder="Write your message here..."
-          className="mb-6 h-56 w-full resize-none rounded p-3"
+          className="mb-6 h-56 w-full resize-none rounded p-3 dark:bg-white dark:text-primary-foreground"
         />
-        <div className="text-accent">
+        <div className="text-red-600 dark:text-accent">
           {state.errors.length > 0 ? (
             <p className="mb-6 text-lg font-semibold">
               {state.errors[0].message} 😢
@@ -59,13 +60,13 @@ export default function ContactForm() {
             errors={state.errors}
           />
         </div>
-        <button
+        <Button
           type="submit"
           disabled={state.submitting}
-          className="transitionduration-200 flex h-14 w-44 items-center justify-center rounded-full px-8 text-xl font-medium shadow-sm ease-in-out hover:translate-y-0.5 hover:opacity-90 hover:shadow-md active:translate-y-0.5"
+          className="h-14 w-44 bg-primary text-xl"
         >
           {buttonContent}
-        </button>
+        </Button>
       </form>
     </section>
   );
