@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 
 export default function ThemeToggle() {
   const { setTheme } = useTheme();
-  const [currentTheme, setCurrentTheme] = useState('light');
+  const [currentTheme, setCurrentTheme] = useState('dark');
 
   useEffect(() => {
     setTheme(currentTheme);
