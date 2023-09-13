@@ -1,11 +1,20 @@
+import Link from 'next/link';
 import ThemeToggle from './ui/theme-toggle';
 
 export default function Header() {
   return (
     <header className="p-6 pt-10 md:p-8 md:pt-10">
-      <div className="mx-auto flex max-w-3xl justify-between ">
+      <div className="mx-auto flex max-w-3xl items-center justify-between ">
         <nav>
           <ul className="flex gap-6 text-secondary-foreground">
+            <li>
+              <Link
+                href="/blog"
+                className="hover:underline hover:underline-offset-4"
+              >
+                Blog
+              </Link>
+            </li>
             <li>
               <a
                 href="https://standardresume.co/r/dominicva"
