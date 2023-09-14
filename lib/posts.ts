@@ -7,20 +7,20 @@ import type { PostMetaData } from '@/types';
 
 const ROOT_DIRECTORY = path.join(process.cwd(), 'content');
 
-const prettyCodeOptions = {
-  theme: 'one-dark-pro',
-  onVisitLine(node: any) {
-    if (node.children.length === 0) {
-      node.children = [{ type: 'text', value: '' }];
-    }
-  },
-  onVisitHighlightedLine(node: any) {
-    node.properties.className.push('highlighted');
-  },
-  onVisitHighlightedWord(node: any) {
-    node.properties.className = ['highlighted', 'word'];
-  },
-};
+// const prettyCodeOptions = {
+//   theme: 'one-dark-pro',
+//   onVisitLine(node: any) {
+//     if (node.children.length === 0) {
+//       node.children = [{ type: 'text', value: '' }];
+//     }
+//   },
+//   onVisitHighlightedLine(node: any) {
+//     node.properties.className.push('highlighted');
+//   },
+//   onVisitHighlightedWord(node: any) {
+//     node.properties.className = ['highlighted', 'word'];
+//   },
+// };
 
 export const getPostBySlug = async (slug: string) => {
   const filePath = path.join(ROOT_DIRECTORY, `${slug}.mdx`);
@@ -31,9 +31,9 @@ export const getPostBySlug = async (slug: string) => {
     components,
     options: {
       parseFrontmatter: true,
-      mdxOptions: {
-        rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
-      },
+      // mdxOptions: {
+      //   rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
+      // },
     },
   });
 
