@@ -9,7 +9,7 @@ export default async function BlogPage() {
       <h1 className="mb-10 text-3xl">Blog</h1>
       <ul className="flex flex-col gap-8">
         {posts.map(({ slug, title, author, date }) => (
-          <li key={slug}>
+          <li key={slug} className="rounded-md border-2 border-accent p-4">
             <Link href={`/posts/${slug}`}>
               <hgroup>
                 <h2>{title}</h2>
