@@ -1,8 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import clsx from 'clsx';
 import { Icons } from './ui/icons';
 
-export default function HeaderNav({
+export default function DesktopNav({
   direction,
 }: {
   direction: 'horizontal' | 'vertical';
