@@ -6,7 +6,7 @@ export default function BlogPage() {
       <h1>Blog</h1>
       <ul>
         <li>
-          <Link href="/blog/first-post">First Post</Link>
+          <Link href="/posts/intro-typescript-react">First Post</Link>
         </li>
       </ul>
     </div>
