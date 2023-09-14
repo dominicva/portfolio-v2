@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import clsx from 'clsx';
 import { Icons } from './ui/icons';
 import {
   Popover,
@@ -18,7 +17,7 @@ export default function MobileNav() {
       </PopoverTrigger>
       <PopoverContent className="ml-1 mt-1">
         <nav>
-          <ul className={clsx('flex flex-col gap-6 text-secondary-foreground')}>
+          <ul className="flex flex-col gap-6 text-secondary-foreground">
             <li>
               <Link
                 href="/"
