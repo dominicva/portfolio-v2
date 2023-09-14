@@ -12,7 +12,7 @@ export default function BackButton() {
       onClick={router.back}
       variant="outline"
       size="sm"
-      className="flex gap-1"
+      className="mb-4 flex gap-1"
     >
       <Icons.arrowLeft />
       <span>Back</span>

@@ -1,15 +1,26 @@
 import path from 'path';
 import fs from 'fs';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import rehypePrettyCode from 'rehype-pretty-code';
+import { components } from '@/components/MDXComponents';
+import type { PostMetaData } from '@/types';
 
 const ROOT_DIRECTORY = path.join(process.cwd(), 'content');
 
-interface PostMetaData {
-  slug: string;
-  author: string;
-  title: string;
-  date: string;
-}
+const prettyCodeOptions = {
+  theme: 'one-dark-pro',
+  onVisitLine(node: any) {
+    if (node.children.length === 0) {
+      node.children = [{ type: 'text', value: '' }];
+    }
+  },
+  onVisitHighlightedLine(node: any) {
+    node.properties.className.push('highlighted');
+  },
+  onVisitHighlightedWord(node: any) {
+    node.properties.className = ['highlighted', 'word'];
+  },
+};
 
 export const getPostBySlug = async (slug: string) => {
   const filePath = path.join(ROOT_DIRECTORY, `${slug}.mdx`);
@@ -17,8 +28,12 @@ export const getPostBySlug = async (slug: string) => {
 
   const { content, frontmatter } = await compileMDX({
     source: fileContent,
+    components,
     options: {
       parseFrontmatter: true,
+      mdxOptions: {
+        rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
+      },
     },
   });
 
