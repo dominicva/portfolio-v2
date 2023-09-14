@@ -7,24 +7,23 @@ import type { PostMetaData } from '@/types';
 
 const ROOT_DIRECTORY = path.join(process.cwd(), 'content');
 
-const prettyCodeOptions = {
-  theme: 'one-dark-pro',
-  onVisitLine(node: any) {
-    if (node.children.length === 0) {
-      node.children = [{ type: 'text', value: '' }];
-    }
-  },
-  onVisitHighlightedLine(node: any) {
-    node.properties.className.push('highlighted');
-  },
-  onVisitHighlightedWord(node: any) {
-    node.properties.className = ['highlighted', 'word'];
-  },
-};
+// const prettyCodeOptions = {
+//   theme: 'one-dark-pro',
+//   onVisitLine(node: any) {
+//     if (node.children.length === 0) {
+//       node.children = [{ type: 'text', value: '' }];
+//     }
+//   },
+//   onVisitHighlightedLine(node: any) {
+//     node.properties.className.push('highlighted');
+//   },
+//   onVisitHighlightedWord(node: any) {
+//     node.properties.className = ['highlighted', 'word'];
+//   },
+// };
 
 export const getPostBySlug = async (slug: string) => {
-  const realSlug = slug.replace(/\.mdx$/, '');
-  const filePath = path.join(ROOT_DIRECTORY, `${realSlug}.mdx`);
+  const filePath = path.join(ROOT_DIRECTORY, `${slug}.mdx`);
   const fileContent = fs.readFileSync(filePath, { encoding: 'utf-8' });
 
   const { content, frontmatter } = await compileMDX({
@@ -33,7 +32,7 @@ export const getPostBySlug = async (slug: string) => {
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
+        // rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
       },
     },
   });
