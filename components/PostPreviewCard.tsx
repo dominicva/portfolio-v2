@@ -15,7 +15,7 @@ export default function PostPreviewCard({
     <>
       <hgroup>
         <Link href={`/posts/${slug}`}>
-          <h2 className="mb-2 text-lg font-bold underline-offset-4 hover:underline">
+          <h2 className="mb-1 text-lg font-bold underline-offset-4 hover:underline">
             {title}
           </h2>
         </Link>
