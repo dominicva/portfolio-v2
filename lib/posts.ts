@@ -51,12 +51,8 @@ const getHighlighter: RehypeCodeOptions['getHighlighter'] = async options => {
 };
 
 const getRehypeCodeOptions = (): Partial<RehypeCodeOptions> => ({
-  // Requirements for theme:
-  // - Has light and dark version
-  // - Uses italic in several places
   theme: {
     dark: 'dracula',
-    // light: 'github-light',
   },
   // Need to use a custom highlighter because rehype-pretty-code doesn't
   // let us customize "paths".
