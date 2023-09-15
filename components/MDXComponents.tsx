@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import clsx from 'clsx';
 import { overPassMono } from '@/lib/font';
 import PostTitle from './post/PostTitle';
@@ -12,5 +13,6 @@ export const components = {
       </h1>
     );
   },
+  Image,
   PostTitle,
 };

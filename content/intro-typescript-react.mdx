@@ -4,6 +4,54 @@ author: 'Dominic van Almsick'
 date: '2023-09-14'
 ---
 
+## Introduction
+
+### What is TypeScript?
+
+TypeScript is a [superset](https://www.cuemath.com/algebra/superset/) of JavaScript. The practical implication of this is that any valid JavaScript is valid
+TypeScript.
+
+<figure>
+  <figcaption className="mb-2">Venn diagram of a superset</figcaption>
+  <Image
+    src="/assets/ts-js-superset.svg"
+    alt="TypeScript superset of JavaScript"
+    width={260}
+    height={260}
+    className="mx-auto"
+  />
+</figure>
+
+## Setting up your development environment
+
+- Vite
+
+## TypeScript basics for React
+
+- disclaimer: see the intro pages in the TS docs for a better and more in depth explanation of these topics!
+- demo primitive typing with basic variables, include demo of array typing, mention any, type inference
+- typing function parameters
+- contextual typing example with .map - if array element types are known, map doesn&apos;t need to be told
+- introduce type and interface including differences / rule of thumb, include optional properties
+
+## Refactor component from JS to TS
+
+- live code refactoring a component to TS
+
+## Some exercises for you to try
+
+1. component refactoring exercise
+2. typing children. intro React.PropsWithChildren
+3. form submit including types of state and event handlers
+4. fetch array of items from API, use TS to specify shape of item objects
+5. diving deeper: union and intersection
+
+## Suggested next steps
+
+- unions
+- intersections
+- generics
+
 ```tsx
 function BlogPost({ title }: { title: string }) {
   return <h1>{title}</h1>;
