@@ -9,17 +9,6 @@ const ROOT_DIRECTORY = path.join(process.cwd(), 'content');
 
 const prettyCodeOptions = {
   theme: 'one-dark-pro',
-  onVisitLine(node: any) {
-    if (node.children.length === 0) {
-      node.children = [{ type: 'text', value: '' }];
-    }
-  },
-  onVisitHighlightedLine(node: any) {
-    node.properties.className.push('highlighted');
-  },
-  onVisitHighlightedWord(node: any) {
-    node.properties.className = ['highlighted', 'word'];
-  },
 };
 
 export const getPostBySlug = async (slug: string) => {
@@ -36,6 +25,8 @@ export const getPostBySlug = async (slug: string) => {
       },
     },
   });
+
+  console.log('content', content);
 
   return {
     content,
