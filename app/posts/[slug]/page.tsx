@@ -15,7 +15,7 @@ export default async function BlogPostPage({
   return (
     <main
       className={clsx(
-        'prose mx-auto max-w-2xl pb-20 dark:prose-invert sm:mt-14 md:px-0 ',
+        'prose mx-auto mt-14 max-w-2xl pb-20 dark:prose-invert md:px-0 ',
         overPass.className
       )}
     >
