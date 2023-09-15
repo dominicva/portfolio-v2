@@ -54,15 +54,10 @@ const getRehypeCodeOptions = (): Partial<RehypeCodeOptions> => ({
   // Requirements for theme:
   // - Has light and dark version
   // - Uses italic in several places
-  // theme: { light: 'one-dark-pro', dark: 'one-dark-pro' },
-  // theme: { light: 'github-light', dark: 'github-dark-dimmed' },
-  // theme: 'dracula',
   theme: {
     dark: 'dracula',
-    light: 'github-light',
+    // light: 'github-light',
   },
-  // keepBackground: false,
-
   // Need to use a custom highlighter because rehype-pretty-code doesn't
   // let us customize "paths".
   getHighlighter,
@@ -71,9 +66,6 @@ const getRehypeCodeOptions = (): Partial<RehypeCodeOptions> => ({
 export const getMdxCode = (): PluggableList => [
   [rehypePrettyCode, getRehypeCodeOptions()],
 ];
-// const prettyCodeOptions = {
-//   theme: 'one-dark-pro',
-// };
 
 export const getPostBySlug = async (slug: string) => {
   const filePath = path.join(ROOT_DIRECTORY, `${slug}.mdx`);
@@ -85,7 +77,6 @@ export const getPostBySlug = async (slug: string) => {
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        // rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
         rehypePlugins: getMdxCode(),
       },
     },
