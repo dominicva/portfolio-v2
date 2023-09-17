@@ -89,11 +89,65 @@ month++; // month is now NaN
 Number.isNaN(month) === true; // yep
 ```
 
-This is totally legal JavaScript, and we'll get no clues as to which code introduced the bug.
+This is legal JavaScript; we'll get no clues as to which code introduced the bug.
 We have to execute code in our heads until we identify where we went wrong. JavaScript alone
 doesn't **_surface_** the source of the problem.
 
-- demo primitive typing with basic variables, include demo of array typing, mention any, type inference
+TypeScript's purpose is to catch bugs like these during the code authoring process, reducing the time and cognitive
+load spent on debugging,
+
+Let's re-introduce our `month` variable with TypeScript specific syntax:
+
+```ts
+let month: number = 9;
+month = 'October';
+```
+
+Adding `: number` to the left of the assignment operator explicitly tells TypeScript that `month` should be a number.
+When we then try to assign a string to `month` we will immediately get a warning in our IDE. You can experiment with this example
+in the [TypeScript playground](https://www.typescriptlang.org/play?#code/PTAEBEFcFNQFwPagORwJ4AdYEsB2AzaAJ2lwGNpkAaUAd1gEMy5IGAbNtUAEwV1VC5o0bqAAqAZQC0AZyxls+bGVAy0uOAwAeofAiIAoEPAAW2GaGhaGAWwxtoAOnETQeQkQtwTsdFlAARgwyIqB8pji42HDY7KDBMtgA5rg2pHAGDnCgNnzeoAC8oACcANwGuRomhSgA8swIAcTI5ZXeANTt5WR8MggOjmwISQAUAHKQNk1EjuZjDGMjbSYAlIUFRXBEMCvlRmAAkvh0sLQMGqGIgbBW9srRoCPRyBYkPTZpuNyhaAiQPHwBLxTOY3LhQL9IERQD1vit9qAsjk8iYAFyCSbTGplBHLGrIeqIaYtIA).
+
+For this example, we didn't need to add extra syntax to get the benefits of type checking.
+Whenever possible, TypeScript gets out of our way by using **_type inference_**. The `number` type is inferred
+from the initial assignment. In fact, best-practice is **not** to add type annotations when inference is straightforward.
+
+### Getting interesting with objects
+
+As we saw above, TypeScript has no trouble inferring types for simple variables without our help. However, in JavaScript we spend much of our time
+working with objects.
+
+We usually have a specific _interface_ in mind for objects we create, even if we are not explicit about it. What properties should the object have? What types are
+their values? What operations are permitted on them? Take the following objects, `user1` and `user2`:
+
+```ts
+const user1 = {
+  name: 'Dom',
+  isAdmin: true,
+  greeting: 'hello!',
+};
+
+const user2 = {
+  name: 'Mick',
+  greeting(message) {
+    console.log(`Hi, ${message}`);
+  },
+};
+```
+
+Now reflect on what the following lines of code evaluate to. Which ones crash our program?
+Which won't? Are these helpful outcomes?
+
+```ts
+user1.name; // 'Dom'
+user1.isAdmin; // true
+user1.isAdmin(); // TypeError: user1.isAdmin is not a function
+user1.greeting; // 'hello!'
+user1.greeting('how are you?'); // TypeError: user1.greeting is not a function
+user2.isAdmin; // undefined
+user2.greeting; // f greeting()
+```
+
+- include demo of array typing, mention any, type inference
 - typing function parameters
 - contextual typing example with .map - if array element types are known, map doesn&apos;t need to be told
 - introduce type and interface including differences / rule of thumb, include optional properties
