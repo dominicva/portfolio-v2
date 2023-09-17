@@ -42,7 +42,18 @@ function parameters, and more. To quote the TypeScript docs:
 
 > JavaScript provides language primitives like string and number, but it doesn’t check that you’ve consistently assigned these. TypeScript does.
 
+When I first came across TypeScript, I was confused about its exact relationship to JavaScript. Is it a completely separate programming language?
+Does it have its own runtime? If you're similarly unsure, the following points might shed some light:
+
+1. TypeScript is an _analysis tool_ that runs _before_ your code. This is what is meant when it is referred to as a [**static**](https://en.wikipedia.org/wiki/Static_program_analysis) typechecker.
+2. The analysis results in warnings in your IDE or terminal if types in the program are incorrect.
+3. Before execution, TypeScript is [**transpiled**](https://hashnode.com/post/compiling-vs-transpiling-cl0z2hugi0cjhj6nv6pp6a1j3) into JavaScript.
+4. Since your code is just JavaScript once it runs, TypeScript has no impact on the runtime behaviour of your code. It will not cause more or different errors
+   to be thrown. It only _warns_ you about potential errors while you are authoring your code.
+
 ## Setting up your development environment
+
+### Vite
 
 We are going to use [Vite](https://vitejs.dev/) as our build tool. It's fast, and supports TypeScript out-of-the-box.
 
