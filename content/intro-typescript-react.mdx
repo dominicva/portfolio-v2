@@ -46,7 +46,7 @@ function parameters, and more. To quote the TypeScript docs:
 
 We are going to use [Vite](https://vitejs.dev/) as our build tool. It's fast, and supports TypeScript out-of-the-box.
 
-To generate a TypeScript + React template run the following command in your terminal
+To generate a TypeScript + React template run the following command in your terminal:
 
 ```sh
 npm create vite@latest -- --template react-ts
@@ -54,7 +54,33 @@ npm create vite@latest -- --template react-ts
 
 Note that this doesn't download the required node modules. You will need to `cd` into your project directory and `npm install` before trying to start your dev server.
 
-## TypeScript basics for React
+## The basics
+
+### Typing variables
+
+Let's take the simplest case. We have a variable `month`, to which we want to assign the appropriate integer value
+for a given month. E.g. `9` for September.
+
+```ts
+let month = 9; // September
+```
+
+We can imagine that another developer, or our future selves, might be tempted to re-assign this variable like so
+
+```ts
+month = 'October';
+```
+
+If we intended for `month` to be used in a mathematical operation, we've now got a bug. For example, if we increment month:
+
+```ts
+month++; // month is now NaN
+Number.isNaN(month) === true; // yep
+```
+
+This is totally legal JavaScript, and we'll get no clues as to which code introduced the bug.
+We have to execute code in our heads until we identify where we went wrong. JavaScript alone
+doesn't **_surface_** the source of the problem.
 
 - demo primitive typing with basic variables, include demo of array typing, mention any, type inference
 - typing function parameters
