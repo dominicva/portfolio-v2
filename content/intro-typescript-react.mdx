@@ -23,7 +23,7 @@ The goal is to get you using TypeScript in your React projects as painlessly as 
 
 ### What is TypeScript?
 
-TypeScript is a [superset](https://www.cuemath.com/algebra/superset/) of JavaScript. As a result, any valid JavaScript is valid
+TypeScript is a [superset](https://www.cuemath.com/algebra/superset/) of JavaScript. The implication is that any valid JavaScript is valid
 TypeScript.
 
 <figure>
@@ -38,17 +38,24 @@ TypeScript.
 </figure>
 
 TypeScript is JavaScript **_plus_** the ability to specify types for variables,
-functions, and more. To quote the TypeScript docs:
+function parameters, and more. To quote the TypeScript docs:
 
 > JavaScript provides language primitives like string and number, but it doesn’t check that you’ve consistently assigned these. TypeScript does.
 
 ## Setting up your development environment
 
-- Vite
+We are going to use [Vite](https://vitejs.dev/) as our build tool. It's fast, and supports TypeScript out-of-the-box.
+
+To generate a TypeScript + React template run the following command in your terminal
+
+```sh
+npm create vite@latest -- --template react-ts
+```
+
+Note that this doesn't download the required node modules. You will need to `cd` into your project directory and `npm install` before trying to start your dev server.
 
 ## TypeScript basics for React
 
-- disclaimer: see the intro pages in the TS docs for a better and more in depth explanation of these topics!
 - demo primitive typing with basic variables, include demo of array typing, mention any, type inference
 - typing function parameters
 - contextual typing example with .map - if array element types are known, map doesn&apos;t need to be told
