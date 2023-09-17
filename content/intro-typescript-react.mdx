@@ -16,8 +16,8 @@ function BlogPost({ title }: { title: string }) {
 
 ## Introduction
 
-We cover the essentials you need to start using TypeScript effectively with React. This is not a comprehensive guide and in most (surely all) cases the [TypeScript docs](https://www.typescriptlang.org/docs/)
-provide better and more in-depth explanations.
+We cover the essentials you need to start using TypeScript effectively with React.
+This is not a comprehensive guide, and in most (surely all) cases, the TypeScript docs provide better and more in-depth explanations.
 
 The goal is to get you using TypeScript in your React projects as painlessly as possible.
 
@@ -45,7 +45,7 @@ function parameters, and more. To quote the TypeScript docs:
 When I first came across TypeScript, I was confused about its exact relationship to JavaScript. Is it a completely separate programming language?
 Does it have its own runtime? If you're similarly unsure, the following points might shed some light:
 
-1. TypeScript is an _analysis tool_ that runs _before_ your code. This is what is meant when it is referred to as a [**static**](https://en.wikipedia.org/wiki/Static_program_analysis) typechecker.
+1. TypeScript is a [**static**](https://en.wikipedia.org/wiki/Static_program_analysis) _analysis tool_, which means that it runs _before_ your code.
 2. The analysis results in warnings in your IDE or terminal if types in the program are incorrect.
 3. Before execution, TypeScript is [**transpiled**](https://hashnode.com/post/compiling-vs-transpiling-cl0z2hugi0cjhj6nv6pp6a1j3) into JavaScript.
 4. Since your code is just JavaScript once it runs, TypeScript has no impact on the runtime behaviour of your code. It will not cause more or different errors
@@ -108,8 +108,8 @@ When we then try to assign a string to `month` we will immediately get a warning
 in the [TypeScript playground](https://www.typescriptlang.org/play?#code/PTAEBEFcFNQFwPagORwJ4AdYEsB2AzaAJ2lwGNpkAaUAd1gEMy5IGAbNtUAEwV1VC5o0bqAAqAZQC0AZyxls+bGVAy0uOAwAeofAiIAoEPAAW2GaGhaGAWwxtoAOnETQeQkQtwTsdFlAARgwyIqB8pji42HDY7KDBMtgA5rg2pHAGDnCgNnzeoAC8oACcANwGuRomhSgA8swIAcTI5ZXeANTt5WR8MggOjmwISQAUAHKQNk1EjuZjDGMjbSYAlIUFRXBEMCvlRmAAkvh0sLQMGqGIgbBW9srRoCPRyBYkPTZpuNyhaAiQPHwBLxTOY3LhQL9IERQD1vit9qAsjk8iYAFyCSbTGplBHLGrIeqIaYtIA).
 
 For this example, we didn't need to add extra syntax to get the benefits of type checking.
-Whenever possible, TypeScript gets out of our way by using **_type inference_**. The `number` type is inferred
-from the initial assignment. In fact, best-practice is **not** to add type annotations when inference is straightforward.
+Whenever possible, TypeScript gets out of our way by using **_type inference_**, inferring the type from the initial assignment.
+Best-practice is to avoid adding type annotations when inference is straightforward.
 
 ### Getting interesting with objects
 
