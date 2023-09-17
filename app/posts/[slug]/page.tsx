@@ -1,7 +1,13 @@
 import clsx from 'clsx';
-import { getPostBySlug } from '@/lib/posts';
+import { getPostBySlug, getSortedPostsMetaData } from '@/lib/posts';
 import { overPass } from '@/lib/font';
 import PostTitle from '@/components/post/PostTitle';
+
+export async function generateStaticParams() {
+  const posts = await getSortedPostsMetaData();
+
+  return posts.map(post => ({ slug: post.slug }));
+}
 
 export default async function BlogPostPage({
   params,
