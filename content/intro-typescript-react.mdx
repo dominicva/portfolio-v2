@@ -4,7 +4,7 @@ author: 'Dominic van Almsick'
 date: '2023-09-14'
 ---
 
-## ⚠️ this article is a work in progress and is currently a collection of notes
+## ⚠️ this article is a work in progress
 
 ```tsx
 function BlogPost({ title }: { title: string }) {
@@ -17,7 +17,7 @@ function BlogPost({ title }: { title: string }) {
 ## Introduction
 
 We cover the essentials you need to start using TypeScript effectively with React.
-This is not a comprehensive guide, and in most (surely all) cases, the TypeScript docs provide better and more in-depth explanations.
+This is not a comprehensive guide, and in most (surely all) cases, the [TypeScript docs](https://www.typescriptlang.org/docs/) provide better and more in-depth explanations.
 
 The goal is to get you using TypeScript in your React projects as painlessly as possible.
 
@@ -93,7 +93,7 @@ This is legal JavaScript; we'll get no clues as to which code introduced the bug
 We have to execute code in our heads until we identify where we went wrong. JavaScript alone
 doesn't **_surface_** the source of the problem.
 
-TypeScript's purpose is to catch bugs like these during the code authoring process, reducing the time and cognitive
+TypeScript's purpose is to catch bugs like these during the code authoring process, reducing time and cognitive
 load spent on debugging,
 
 Let's re-introduce our `month` variable with TypeScript specific syntax:
@@ -108,7 +108,7 @@ When we then try to assign a string to `month` we will immediately get a warning
 in the [TypeScript playground](https://www.typescriptlang.org/play?#code/PTAEBEFcFNQFwPagORwJ4AdYEsB2AzaAJ2lwGNpkAaUAd1gEMy5IGAbNtUAEwV1VC5o0bqAAqAZQC0AZyxls+bGVAy0uOAwAeofAiIAoEPAAW2GaGhaGAWwxtoAOnETQeQkQtwTsdFlAARgwyIqB8pji42HDY7KDBMtgA5rg2pHAGDnCgNnzeoAC8oACcANwGuRomhSgA8swIAcTI5ZXeANTt5WR8MggOjmwISQAUAHKQNk1EjuZjDGMjbSYAlIUFRXBEMCvlRmAAkvh0sLQMGqGIgbBW9srRoCPRyBYkPTZpuNyhaAiQPHwBLxTOY3LhQL9IERQD1vit9qAsjk8iYAFyCSbTGplBHLGrIeqIaYtIA).
 
 For this example, we didn't need to add extra syntax to get the benefits of type checking.
-Whenever possible, TypeScript gets out of our way by using **_type inference_**, inferring the type from the initial assignment.
+Whenever possible, TypeScript gets out of our way by using what is called **_type inference_**, inferring the type from the initial assignment.
 Best-practice is to avoid adding type annotations when inference is straightforward.
 
 ### Getting interesting with objects
@@ -124,6 +124,7 @@ const user1 = {
   name: 'Dom',
   isAdmin: true,
   greeting: 'hello!',
+  birthday: 694224000000,
 };
 
 const user2 = {
@@ -131,6 +132,7 @@ const user2 = {
   greeting(message) {
     console.log(`Hi, ${message}`);
   },
+  birthday: '1999-02-04',
 };
 ```
 
@@ -138,14 +140,44 @@ Now reflect on what the following lines of code evaluate to. Which ones crash ou
 Which won't? Are these helpful outcomes?
 
 ```ts
-user1.name; // 'Dom'
 user1.isAdmin; // true
-user1.isAdmin(); // TypeError: user1.isAdmin is not a function
-user1.greeting; // 'hello!'
-user1.greeting('how are you?'); // TypeError: user1.greeting is not a function
 user2.isAdmin; // undefined
+user1.isAdmin(); // TypeError: user1.isAdmin is not a function
+
+user1.greeting; // 'hello!'
 user2.greeting; // f greeting()
+
+user1.birthday - user2.birthday; // NaN
 ```
+
+- **`user2.isAdmin`:** accessing properties that don't exist is legal JavaScript. You get `undefined`.
+  Have we forgotten to assign a value? Is the value intentionally undefined? It seems harmless, but what
+  if you're passing this data to a database? What type of data does the `isAdmin` column expect?
+  Getting this wrong _will_ cause bugs.
+
+- **`user2.isAdmin()`:** it would be reasonable if `.isAdmin()` were a method, particularly if it involves reading
+  from a database or user session. The error message is descriptive, making it easier to identify the source of the issue. Nevertheless,
+  it would be nice to avoid mistakes like this altogether.
+
+- **`user2.greeting`:** we get a reference to the `.greeting()` method. Let's say we tried this:
+
+  ```ts
+  // assuming this exists on our web page
+  const h2 = document.querySelector('h2');
+
+  if (user2.greeting) {
+    h2.textContent = greeting;
+  } else {
+    h2.textContent = 'Hi there!';
+  }
+  ```
+
+  Now we're displaying a function signature in our UI!
+
+- **`user1.birthday - user2.birthday`:** calculating the time between dates is a common
+  task. Without knowing their types we have to search our code for the source of `NaN`.
+
+---
 
 - include demo of array typing, mention any, type inference
 - typing function parameters
