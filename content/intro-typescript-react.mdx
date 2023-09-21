@@ -11,7 +11,7 @@ function BlogPost({ title }: { title: string }) {
   return <h1>{title}</h1>;
 }
 
-<BlogPost title="Coming soon..." />;
+<BlogPost title="Working on it..." />;
 ```
 
 ## Introduction
@@ -50,20 +50,6 @@ Does it have its own runtime? If you're similarly unsure, the following points m
 3. Before execution, TypeScript is [**transpiled**](https://hashnode.com/post/compiling-vs-transpiling-cl0z2hugi0cjhj6nv6pp6a1j3) into JavaScript.
 4. Since your code is just JavaScript once it runs, TypeScript has no impact on the runtime behaviour of your code. It will not cause more or different errors
    to be thrown. It only _warns_ you about potential errors while you are authoring your code.
-
-## Setting up your development environment
-
-### Vite
-
-We are going to use [Vite](https://vitejs.dev/) as our build tool. It's fast, and supports TypeScript out-of-the-box.
-
-To generate a TypeScript + React template run the following command in your terminal:
-
-```sh
-npm create vite@latest -- --template react-ts
-```
-
-Note that this doesn't download the required node modules. You will need to `cd` into your project directory and `npm install` before trying to start your dev server.
 
 ## The basics
 
@@ -184,9 +170,9 @@ Here is the syntax for declaring a custom type and declaring that an object inst
 ```ts
 type UserProps = {
   name: string;
-  isAdmin: boolean;
   greeting: string;
   birthday: number;
+  isAdmin: boolean;
 };
 
 const user1: UserProps = {
@@ -203,6 +189,78 @@ Note the semi-colons separating properties. This is common practice, but commas 
 
 **The workflow of declaring a custom type and specifying that a variable should conform to it
 is exactly how we will type component props in React.**
+
+### Specifying array types
+
+We want to add a `posts` property to our user object. `posts` should be an array where each element is an object
+containing data related to a user's blog post. Let's expand our example to reflect this. You can experiment with this
+example in the [TypeScript playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBACg9gZ2DATnMCoF4oG8BQUUwAlsADYQBcUSKJAdgOYDchUAhgK7AAWcKGnUat2YLgCNyJBLwgATAPIMhweszYBfNvlCQoAVQQQUqdJhwEiDDgFtqtNSLZEZAQXm3GNCXDiUOBhcoJhQICFJmVXVRIgkSFD55DhAaBi5bCRNgsERgBBp4JDMMAG0AXS0dAGM4BiQoLmMUAEYaIxMSizx2G3saAHIAEThbAYAadndPb2IULghJolDwyKZBuXJyOABCCfZ4xN5k1KgANgBOABYAJhurgAYn56WoXKQCqFL2Iisif9IFAcAwA4hE1o4OIkFFAAO5kXhQAAq4AgAGVqvQwMAoIwoAAlCAcarAfb-f7cPgCQYjLwMEjVKAAN0CUDc5FsCAZAGsyeS3pJpLIFMpBjcHjcAMwAWgeF2lLSufKImlevx+ALIlEGACEuCRyPJOFBagx5GQSHUOFsQFAAGYCWwcYDAGHVa0QM1Q3EMAlEknKik8fiCKDDUaMBnM1nszk8wNEcRSGRyJQqMPiqUKh4Km4JjWq9jlSbaIA).
+
+```ts
+type PostProps = {
+  title: string;
+  author: string;
+  publishedOn: string;
+};
+
+type UserProps = {
+  name: string;
+  isAdmin: boolean;
+  greeting: string;
+  birthday: number;
+  posts: PostProps[];
+};
+
+const user1: UserProps = {
+  name: 'Dom',
+  isAdmin: true,
+  greeting: 'hello!',
+  birthday: 694224000000,
+  posts: [
+    {
+      title: 'Getting started with TypeScript in React',
+      author: 'Dominic van Almsick',
+      publishedOn: '2023-09-14',
+    },
+    {
+      title: 'Build a conditionally formatted calendar in React',
+      author: 'Dominic van Almsick',
+      publishedOn: '2023-10-12',
+    },
+  ],
+};
+```
+
+What have we added here?
+
+- A custom type `PostProps` specifying the properties and types that post objects should have
+- We have added a `posts` field to `UserProps`
+- the syntax `posts: PostProps[];` should be read as:
+  > the value for the posts property should be an array where each element is of type PostProps
+
+The syntax for an array is the `[]` square brackets after the type name. In this example we used a custom
+type. If we were specifying arrays of primitives the syntax would be:
+
+```ts
+const numbers: number[] = [1, 2, 3];
+const strings: string[] = ['a', 'b', 'c'];
+const bools: boolean[] = [true, false, false];
+// etc.
+```
+
+## Setting up your development environment
+
+### Vite
+
+We are going to use [Vite](https://vitejs.dev/) as our build tool. It's fast, and supports TypeScript out-of-the-box.
+
+To generate a TypeScript + React template run the following command in your terminal:
+
+```sh
+npm create vite@latest -- --template react-ts
+```
+
+Note that this doesn't download the required node modules. You will need to `cd` into your project directory and `npm install` before trying to start your dev server.
 
 ---
 
