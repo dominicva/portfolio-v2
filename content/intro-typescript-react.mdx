@@ -172,10 +172,37 @@ user1.birthday - user2.birthday; // NaN
   }
   ```
 
-  Now we're displaying a function signature in our UI!
+  Now we're displaying a function signature in our UI! I actually saw this happen on a payment confirmation page recently.
 
 - **`user1.birthday - user2.birthday`:** calculating the time between dates is a common
   task. Without knowing their types we have to search our code for the source of `NaN`.
+
+### Specifying types for the user object
+
+Here is the syntax for declaring a custom type and declaring that an object instance should conform to it:
+
+```ts
+type UserProps = {
+  name: string;
+  isAdmin: boolean;
+  greeting: string;
+  birthday: number;
+};
+
+const user1: UserProps = {
+  name: 'Dom',
+  isAdmin: true,
+  greeting: 'hello!',
+  birthday: 694224000000,
+};
+```
+
+You can experiment with this example in the [TypeScript playground](https://www.typescriptlang.org/play?#code/PTAEBMFMGMBsEMBOlT1NArgZwC4HsBbUHATwAdIAoUi0AVS0kQAVE8ytQBeUAb0tCgAdvAKQAXKFyIAlkIDmAbgGgZWAILgCcyQCM8eWJHhDlg+ckg458ydJtnQumYhwALcPBKShGArqZlAF9lShAIGHhYZFR0PCFcExxiN3hkrDc8DFhwOKEAMzxEInx6RhY2DkpoeNxQbCYARkkGJlZ2Th5+QRExSQAiABFCfoAaFTVNbSFJHEQMSHHzS2sFAbdIWFg8AEIxlWdXDy9JADYATgAWACZry4AGR6fxkMowsBNQSABHDBkANyikCE6RIIPgAA8UmkpBRoDJ8jJIJx3CgaCg5LA5FRwog0htENChKAAO4ydyxRhkJBpNHkFBQOA06zxaq1ZINRDXSTdYSiCRSOYOCYaLQ6JwGIwmRwWSBWGx2IUKRyHdyebzCPwBRDBbh8FS9AVDEZLVSi6azeaLFSy+VrUD9DZbXb7QSq44ai43O5PZ6UV5AA).
+The syntax looks a lot like a regular JavaScript object, except types take the place of values.
+Note the semi-colons separating properties. This is common practice, but commas are also valid.
+
+**The workflow of declaring a custom type and specifying that a variable should conform to it
+is exactly how we will type component props in React.**
 
 ---
 
