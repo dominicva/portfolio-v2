@@ -17,7 +17,7 @@ function BlogPost({ title }: { title: string }) {
 ## Introduction
 
 We cover the essentials you need to start using TypeScript effectively with React.
-This is not a comprehensive guide, and in most (surely all) cases, the [TypeScript docs](https://www.typescriptlang.org/docs/) provide better and more in-depth explanations.
+This is not a comprehensive TypeScript guide, and in most (surely all) cases, the [TypeScript docs](https://www.typescriptlang.org/docs/) provide better and more in-depth explanations.
 
 The goal is to get you using TypeScript in your React projects as painlessly as possible.
 
@@ -190,7 +190,7 @@ Note the semi-colons separating properties. This is common practice, but commas 
 **The workflow of declaring a custom type and specifying that a variable should conform to it
 is exactly how we will type component props in React.**
 
-### Specifying array types
+### Typing arrays
 
 We want to add a `posts` property to our user object. `posts` should be an array where each element is an object
 containing data related to a user's blog post. Let's expand our example to reflect this. You can experiment with this
@@ -248,15 +248,216 @@ const bools: boolean[] = [true, false, false];
 // etc.
 ```
 
+### Typing functions
+
+When it comes to functions there are two pieces of type information to consider
+
+1. the types of the function's **parameters**
+2. the type of the function's **return value**
+
+Let's get straight to an example, incorporating the concepts we have covered to far.
+Consider the following function, `getWordsFromString`, which accepts a string of text as input,
+and returns an array where each element is a word from the original string. For simplicity we will only
+cover separating on a single space.
+
+```ts
+function getWordsFromString(text: string): string[] {
+  return text.split(' ');
+}
+```
+
+- for parameters, we include the type information within the parentheses.
+- for the return value, we include the type information after the parentheses, preceded
+  by a colon.
+
+This level of detail will get us a long way in terms of typing React components.
+Typing functions does go much deeper though. Here's a [link](https://www.typescriptlang.org/docs/handbook/2/functions.html)
+to the relevant section of the docs if you're keen to learn more.
+
 ## Our mini project
 
 Let's get ready to write some React.
 
 We are going to create a list of countries and data associated with them.
-Each country has its own card in the UI. You can download some starter code [here]().
+Each country has its own card in the UI. Clone this [repo](https://github.com/dominicva/intro-ts-react.git) to get the starter code.
+The repo has two branches: `main` and `solution`. We'll be working through the exercise on the main branch.
 
-If you prefer to code along from scratch you can follow the instructions in the "Setting up your development
-environment" section below.
+### Inspecting the project
+
+Once you've opened up the repo in VSCode and run `npm install`, run `npm run dev` to start the local dev server.
+
+We've got the usual suspects in a boilerplate React app. For simplicity I've kept all of the code inside `App.tsx`,
+and you won't have to worry about styling at all. Here's the contents of `App.tsx`
+
+```jsx
+import './App.css';
+import countries from './countries.json';
+
+function CountryCard({ name, continents, population, capital, flags }) {
+  return (
+    <article className="country">
+      <img src={flags.svg} alt={flags.alt} className="country__flag" />
+      <div className="country__text-content">
+        <hgroup>
+          <h2 className="country__name">{name}</h2>
+          <h3 className="country__continent">{continents[0]}</h3>
+        </hgroup>
+        <div className="country__info">
+          <p className="country__info-container">
+            <span className="country__label">Capital city</span>
+            <span className="country__value">{capital}</span>
+          </p>
+          <p className="country__info-container">
+            <span className="country__label">Population</span>
+            <span className="country__value">
+              {population.toLocaleString()}
+            </span>
+          </p>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function CountriesList({ countries }) {
+  return (
+    <ul className="countries">
+      {countries.map(country => (
+        <li key={country.name}>
+          <CountryCard {...country} />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function App() {
+  return (
+    <main>
+      <h1 className="main__heading">Countries Of the World</h1>
+      <CountriesList countries={countries} />
+    </main>
+  );
+}
+
+export default App;
+```
+
+**There is pure JavaScript. For the exercise, we are going to refactor
+to add TypeScript-specific features.**
+
+Also for your reference here's the json data that we're importing on line 2.
+The data is based on a response from the [REST countries API](https://restcountries.com/).
+
+```json
+[
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/pf.png",
+      "svg": "https://flagcdn.com/pf.svg",
+      "alt": ""
+    },
+    "name": "French Polynesia",
+    "capital": "Papeetē",
+    "landlocked": false,
+    "population": 280904,
+    "continents": ["Oceania"]
+  },
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/mf.png",
+      "svg": "https://flagcdn.com/mf.svg",
+      "alt": ""
+    },
+    "name": "Saint Martin",
+    "capital": "Marigot",
+    "landlocked": false,
+    "population": 38659,
+    "continents": ["North America"]
+  },
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/ve.png",
+      "svg": "https://flagcdn.com/ve.svg",
+      "alt": "The flag of Venezuela is composed of three equal horizontal bands of yellow, blue and red. At the center of the blue band are eight five-pointed white stars arranged in a horizontal arc."
+    },
+    "name": "Venezuela",
+    "capital": "Caracas",
+    "landlocked": false,
+    "population": 28435943,
+    "continents": ["South America"]
+  },
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/re.png",
+      "svg": "https://flagcdn.com/re.svg",
+      "alt": ""
+    },
+    "name": "Réunion",
+    "capital": "Saint-Denis",
+    "landlocked": false,
+    "population": 840974,
+    "continents": ["Africa"]
+  },
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/sv.png",
+      "svg": "https://flagcdn.com/sv.svg",
+      "alt": "The flag of El Salvador is composed of three equal horizontal bands of cobalt blue, white and cobalt blue, with the national coat of arms centered in the white band."
+    },
+    "name": "El Salvador",
+    "capital": "San Salvador",
+    "landlocked": false,
+    "population": 6486201,
+    "continents": ["North America"]
+  },
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/dm.png",
+      "svg": "https://flagcdn.com/dm.svg",
+      "alt": "The flag of Dominica has a green field with a large centered tricolor cross. The vertical and horizontal parts of the cross each comprise three bands of yellow, black and white. A red circle, bearing a hoist-side facing purple Sisserou parrot standing on a twig and encircled by ten five-pointed yellow-edged green stars, is superimposed at the center of the cross."
+    },
+    "name": "Dominica",
+    "capital": "Roseau",
+    "landlocked": false,
+    "population": 71991,
+    "continents": ["North America"]
+  },
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/ke.png",
+      "svg": "https://flagcdn.com/ke.svg",
+      "alt": "The flag of Kenya is composed of three equal horizontal bands of black, red with white top and bottom edges, and green. An emblem comprising a red, black and white Maasai shield covering two crossed white spears is superimposed at the center of the field."
+    },
+    "name": "Kenya",
+    "capital": "Nairobi",
+    "landlocked": false,
+    "population": 53771300,
+    "continents": ["Africa"]
+  },
+  {
+    "flags": {
+      "png": "https://flagcdn.com/w320/mv.png",
+      "svg": "https://flagcdn.com/mv.svg",
+      "alt": "The flag of Maldives has a red field, at the center of which is a large green rectangle bearing a fly-side facing white crescent."
+    },
+    "name": "Maldives",
+    "capital": "Malé",
+    "landlocked": false,
+    "continents": ["Asia"]
+  }
+]
+```
+
+Now open the app in a browser window and see what we get... blank screen? Check the console.
+
+```sh
+Uncaught TypeError: Cannot read properties of undefined (reading 'toLocaleString')
+```
+
+Classic.
+
+Can you find the source of the bug?
 
 ## Setting up your development environment
 
@@ -274,7 +475,6 @@ Note that this doesn't download the required node modules. You will need to `cd`
 
 ---
 
-- include demo of array typing, mention any, type inference
 - typing function parameters
 - contextual typing example with .map - if array element types are known, map doesn&apos;t need to be told
 - introduce type and interface including differences / rule of thumb, include optional properties
