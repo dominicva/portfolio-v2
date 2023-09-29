@@ -302,12 +302,12 @@ function CountryCard({ name, continents, population, capital, flags }) {
           <h2 className="country__name">{name}</h2>
           <h3 className="country__continent">{continents[0]}</h3>
         </hgroup>
-        <div className="country__info">
-          <p className="country__info-container">
+        <div className="country__info-container">
+          <p className="country__info">
             <span className="country__label">Capital city</span>
             <span className="country__value">{capital}</span>
           </p>
-          <p className="country__info-container">
+          <p className="country__info">
             <span className="country__label">Population</span>
             <span className="country__value">
               {population.toLocaleString()}
@@ -343,7 +343,7 @@ function App() {
 export default App;
 ```
 
-**There is pure JavaScript. For the exercise, we are going to refactor
+**This is pure JavaScript. For the exercise, we will refactor
 to add TypeScript-specific features.**
 
 Also for your reference here's the json data that we're importing on line 2.
