@@ -33,6 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head />
       <body className={overPassMono.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
