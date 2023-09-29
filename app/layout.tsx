@@ -12,7 +12,14 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: siteConfig.image,
+    url: siteConfig.url,
+    images: [
+      {
+        url: siteConfig.image,
+        width: 800,
+        height: 600,
+      },
+    ],
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,

@@ -1,5 +1,6 @@
 type SiteConfig = {
   name: string;
+  url: string;
   description: string;
   keywords: string[];
   image: string;
@@ -7,6 +8,7 @@ type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
   name: 'Dom van Almsick - Software Engineer',
+  url: 'https://dominicva.com',
   description: 'Dom van Almsick is a software engineer based in London, UK.',
   keywords: [
     'Next.js',
