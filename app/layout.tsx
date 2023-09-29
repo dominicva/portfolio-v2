@@ -3,10 +3,20 @@ import { overPassMono } from '@/lib/font';
 import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { siteConfig } from '@/config/site';
 
 export const metadata = {
-  title: 'Dom van Almsick - Software Engineer',
-  description: 'Dom van Almsick is a software engineer based in London, UK.',
+  title: siteConfig.name,
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: siteConfig.image,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
 };
 
 export default function RootLayout({
