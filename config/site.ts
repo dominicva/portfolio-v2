@@ -23,6 +23,5 @@ export const siteConfig: SiteConfig = {
     'Web development',
     'Server Components',
   ],
-  image:
-    'https://res.cloudinary.com/dwyxxivqb/image/upload/v1688909564/blueberries_wchn57.jpg',
+  image: 'https://www.dominicva.com/assets/ts-js-superset.svg',
 };
