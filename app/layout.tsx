@@ -1,4 +1,5 @@
 import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
 import { overPassMono } from '@/lib/font';
 import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/Header';
@@ -40,6 +41,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
