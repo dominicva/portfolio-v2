@@ -276,7 +276,7 @@ const person2: Person = {
 ```
 
 TypeScript will give us an error if we try to access a method on the `nickname` property
-unless we guard against it possibly being undefined
+unless we guard against it possibly being undefined.
 
 ```ts
 // TypeScript won't like this
@@ -314,16 +314,14 @@ This level of detail will get us a long way in terms of typing React components.
 Typing functions does go much deeper though. Here's a [link](https://www.typescriptlang.org/docs/handbook/2/functions.html)
 to the relevant section of the docs if you're keen to learn more.
 
-This is helpful because if we try to access the `age` property on a `Person`, TypeScript will give us an error if we don't
-check whether `age` is
-
 ## Our mini project
 
 Let's get ready to write some React.
 
-We are going to create a list of countries and data associated with them.
+We are going to refactor some existing JavaScript React to use TypeScript features.
+The page should display a list of countries and data associated with them.
 Each country has its own card in the UI. Clone this [repo](https://github.com/dominicva/intro-ts-react.git) to get the starter code.
-The repo has two branches: `main` and `solution`. We'll be working through the exercise on the main branch.
+The repo has two branches: `main` and `solution`. You'll be working through the exercise on the main branch.
 
 ### Inspecting the project
 
@@ -500,42 +498,7 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'toLocaleString
 
 Classic.
 
-Can you find the source of the bug?
+Your tasks are to:
 
-## Setting up your development environment
-
-### Vite
-
-We are going to use [Vite](https://vitejs.dev/) as our build tool. It's fast, and supports TypeScript out-of-the-box.
-
-To generate a TypeScript + React template run the following command in your terminal:
-
-```sh
-npm create vite@latest -- --template react-ts
-```
-
-Note that this doesn't download the required node modules. You will need to `cd` into your project directory and `npm install` before trying to start your dev server.
-
----
-
-- typing function parameters
-- contextual typing example with .map - if array element types are known, map doesn&apos;t need to be told
-- introduce type and interface including differences / rule of thumb, include optional properties
-
-## Refactor component from JS to TS
-
-- live code refactoring a component to TS
-
-## Some exercises for you to try
-
-1. component refactoring exercise
-2. typing children. intro React.PropsWithChildren
-3. form submit including types of state and event handlers
-4. fetch array of items from API, use TS to specify shape of item objects
-5. diving deeper: union and intersection
-
-## Suggested next steps
-
-- unions
-- intersections
-- generics
+1. Fix the bug (hint: think about optional properties)
+2. Define a type for a given country and specify how `CountryCard` and `CountriesList` should use it
