@@ -19,7 +19,12 @@ function BlogPost({ title }: { title: string }) {
 We cover the essentials you need to start using TypeScript effectively with React.
 This is not a comprehensive TypeScript guide, and in most (surely all) cases, the [TypeScript docs](https://www.typescriptlang.org/docs/) provide better and more in-depth explanations.
 
-The goal is to get you using TypeScript in your React projects as painlessly as possible.
+**The goal is to get you using simple TypeScript in your React projects as painlessly as possible.**
+
+### Pre-requisites
+
+You should already have a solid understanding of JavaScript and React.
+Some familiarity with basic TypeScript will also be helpful.
 
 ### What is TypeScript?
 
@@ -248,6 +253,41 @@ const bools: boolean[] = [true, false, false];
 // etc.
 ```
 
+### Optional properties
+
+We might want to specify that an object property or function parameter is optional.
+Sometimes it will be there, other times not. We can achieve this by including a question mark `?` before the colon `:`.
+in the type declaration. For example
+
+```ts
+type Person = {
+  name: string;
+  nickname?: string;
+};
+
+const person1: Person = {
+  name: 'Dom',
+};
+
+const person2: Person = {
+  name: 'Michael',
+  nickname: 'Mickey',
+};
+```
+
+TypeScript will give us an error if we try to access a method on the `nickname` property
+unless we guard against it possibly being undefined
+
+```ts
+// TypeScript won't like this
+person1.nickname.toUpperCase();
+
+// This will make it happy
+person1.nickname?.toUpperCase();
+```
+
+This is really helpful for avoiding the dreaded `Cannot read properties of undefined` error!
+
 ### Typing functions
 
 When it comes to functions there are two pieces of type information to consider
@@ -273,6 +313,9 @@ function getWordsFromString(text: string): string[] {
 This level of detail will get us a long way in terms of typing React components.
 Typing functions does go much deeper though. Here's a [link](https://www.typescriptlang.org/docs/handbook/2/functions.html)
 to the relevant section of the docs if you're keen to learn more.
+
+This is helpful because if we try to access the `age` property on a `Person`, TypeScript will give us an error if we don't
+check whether `age` is
 
 ## Our mini project
 
@@ -458,3 +501,41 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'toLocaleString
 Classic.
 
 Can you find the source of the bug?
+
+## Setting up your development environment
+
+### Vite
+
+We are going to use [Vite](https://vitejs.dev/) as our build tool. It's fast, and supports TypeScript out-of-the-box.
+
+To generate a TypeScript + React template run the following command in your terminal:
+
+```sh
+npm create vite@latest -- --template react-ts
+```
+
+Note that this doesn't download the required node modules. You will need to `cd` into your project directory and `npm install` before trying to start your dev server.
+
+---
+
+- typing function parameters
+- contextual typing example with .map - if array element types are known, map doesn&apos;t need to be told
+- introduce type and interface including differences / rule of thumb, include optional properties
+
+## Refactor component from JS to TS
+
+- live code refactoring a component to TS
+
+## Some exercises for you to try
+
+1. component refactoring exercise
+2. typing children. intro React.PropsWithChildren
+3. form submit including types of state and event handlers
+4. fetch array of items from API, use TS to specify shape of item objects
+5. diving deeper: union and intersection
+
+## Suggested next steps
+
+- unions
+- intersections
+- generics
