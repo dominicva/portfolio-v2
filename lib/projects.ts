@@ -16,13 +16,13 @@ export const projects: Omit<ProjectProps, 'index'>[] = [
     image: '/assets/ketomarket-home.png',
     link: 'https://ketomarket.vercel.app/',
   },
-  {
-    title: 'Meal Plan Generator',
-    description:
-      'Built during a hackathon, I used HTML, SASS, and TypeScript. The app allows users to specify ingredients, the approximate number of calories, dietary preference, and the number of desired courses. Using the OpenAI API, the app generates a meal plan with recipes for each of the courses.',
-    image: '/assets/meal-plan-generator.png',
-    link: 'https://meal-bot-chi.vercel.app/',
-  },
+  // {
+  //   title: 'Meal Plan Generator',
+  //   description:
+  //     'Built during a hackathon, I used HTML, SASS, and TypeScript. The app allows users to specify ingredients, the approximate number of calories, dietary preference, and the number of desired courses. Using the OpenAI API, the app generates a meal plan with recipes for each of the courses.',
+  //   image: '/assets/meal-plan-generator.png',
+  //   link: 'https://meal-bot-chi.vercel.app/',
+  // },
   {
     title: 'Earthrise Initiative',
     description:
