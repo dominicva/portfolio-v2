@@ -8,20 +8,17 @@ export default function Hero() {
         <hgroup className="mb-12">
           <h1 className="mb-8 w-[90%] text-2xl">
             <span className="block">Hello, I&apos;m a</span>
-            <span className="block">full-stack web engineer</span>
+            <span className="block">full-stack product engineer</span>
           </h1>
-          <p className="max-w-sm">
-            My name is Dominic van Almsick. I am a full-stack web engineer
-            focusing on technologies like TypeScript, React, Nextjs, and NodeJS.
+          <p className="max-w-[21.25rem]">
+            My name is Dominic van Almsick. I am a full-stack product engineer
+            specialising in TypeScript, React, Nextjs, and NodeJS.
           </p>
         </hgroup>
         <ScrollLink to="#contact-form">
           <Button size="lg" variant="outline" className="w-[12rem]">
             Contact me
           </Button>
-          {/* <Button intent="secondary" className="w-[12rem]">
-            Contact me
-          </Button> */}
         </ScrollLink>
       </div>
     </section>
