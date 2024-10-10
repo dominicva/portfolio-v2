@@ -6,12 +6,13 @@ import ContactForm from '@/components/ContactForm';
 export default function Home() {
   return (
     <div>
-      <main>
-        <Hero />
-        <About />
-        <Projects />
+      <main className="flex h-screen items-center justify-center">
+        {/* <Hero /> */}
+        {/* <About /> */}
+        {/* <Projects /> */}
+        nothing
       </main>
-      <ContactForm />
+      {/* <ContactForm /> */}
     </div>
   );
 }

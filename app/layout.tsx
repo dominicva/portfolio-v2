@@ -37,9 +37,9 @@ export default function RootLayout({
       <head />
       <body className={overPassMono.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
+          {/* <Header /> */}
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </ThemeProvider>
         <Analytics />
       </body>
